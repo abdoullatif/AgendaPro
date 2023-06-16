@@ -8,6 +8,7 @@ use App\Http\Controllers\CreneauController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CalendrierController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\GoogleAccountController;
 use App\Http\Controllers\AdministrationController;
 use App\Http\Controllers\SynchronisationController;
 
@@ -198,5 +199,11 @@ Route::post('/notif', [NotificationController::class, 'sendNotification'])->name
 |
 */
 
-//Sync
+//Sync google
 Route::get('/sync', [SynchronisationController::class, 'index'])->name('sync');
+
+
+//other Google 
+Route::get('/google', [GoogleAccountController::class, 'index'])->name('google.index');
+Route::get('/google/oauth', [GoogleAccountController::class, 'store'])->name('google.store');
+Route::delete('/google/{googleAccount}', [GoogleAccountController::class, 'destroy'])->name('google.destroy');

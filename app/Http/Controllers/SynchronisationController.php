@@ -9,6 +9,7 @@ class SynchronisationController extends Controller
 {
     //
     public function index(){
+        //
         $e = Event::get();
 
         dd($e);
