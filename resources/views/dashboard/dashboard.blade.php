@@ -99,31 +99,12 @@
                     </div>
                   </div>
                 </div>
+
                 <div class="card-body">
                   <canvas id="myChart" height="182"></canvas>
-                  <div class="statistic-details mt-sm-4">
-                    <div class="statistic-details-item">
-                      <!--<span class="text-muted"><span class="text-primary"><i class="fas fa-caret-up"></i></span> 7%</span>-->
-                      <div class="detail-value">4</div>
-                      <div class="detail-name">Reservation aujourd'hui</div>
-                    </div>
-                    <div class="statistic-details-item">
-                      <!--<span class="text-muted"><span class="text-danger"><i class="fas fa-caret-down"></i></span> 23%</span>-->
-                      <div class="detail-value">9</div>
-                      <div class="detail-name">Reservation cette semaine'hui</div>
-                    </div>
-                    <div class="statistic-details-item">
-                      <!--<span class="text-muted"><span class="text-primary"><i class="fas fa-caret-up"></i></span>9%</span>-->
-                      <div class="detail-value">12</div>
-                      <div class="detail-name">Reservation ce mois'hui</div>
-                    </div>
-                    <div class="statistic-details-item">
-                      <!--<span class="text-muted"><span class="text-primary"><i class="fas fa-caret-up"></i></span> 19%</span>-->
-                      <div class="detail-value">142</div>
-                      <div class="detail-name">Reservation cette annee'hui</div>
-                    </div>
-                  </div>
+                  
                 </div>
+                
               </div>
             </div>
             <div class="col-lg-4 col-md-12 col-12 col-sm-12">

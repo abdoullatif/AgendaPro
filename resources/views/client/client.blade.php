@@ -92,7 +92,7 @@
                               <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="#">Modifier</a>
                                 <a class="dropdown-item" href="#">Suprimer</a>
-                                <a class="dropdown-item" href="#">Assign</a>
+                                <a class="dropdown-item" href="#">Bloquer</a>
                               </div>
                             </td>
                           </tr>

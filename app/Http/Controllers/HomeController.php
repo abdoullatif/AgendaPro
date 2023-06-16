@@ -34,7 +34,12 @@ class HomeController extends Controller
                         ->take(6)
                         ->get();
 
-        return view('dashboard.dashboard', compact('admin_employer', 'client', 'creneau', 'creneau_comfirmed', 'creneaux'));
+        if(auth()->user()->role != "Client"){
+            return view('dashboard.dashboard', compact('admin_employer', 'client', 'creneau', 'creneau_comfirmed', 'creneaux'));
+        } else {
+            return view('dashboard.home', compact('admin_employer', 'client', 'creneau', 'creneau_comfirmed', 'creneaux'));
+        }
+        
     }
 
     //
@@ -62,6 +67,10 @@ class HomeController extends Controller
                         ->take(6)
                         ->get();
 
-        return view('dashboard.home', compact('admin_employer', 'client', 'creneau', 'creneau_comfirmed', 'creneaux'));
+        if(auth()->user()->role != "Client"){
+            return view('dashboard.dashboard', compact('admin_employer', 'client', 'creneau', 'creneau_comfirmed', 'creneaux'));
+        } else {
+            return view('dashboard.home', compact('admin_employer', 'client', 'creneau', 'creneau_comfirmed', 'creneaux'));
+        }
     }
 }

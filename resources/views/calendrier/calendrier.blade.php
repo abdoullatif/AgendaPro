@@ -72,23 +72,6 @@ $("#myEvent").fullCalendar({
   },
   editable: true,
   events: [
-    /*
-    {
-      title: 'Conference',
-      start: '2023-01-9',
-      end: '2023-01-11',
-      backgroundColor: "#fff",
-      borderColor: "#fff",
-      textColor: '#000'
-    },
-    {
-      title: "John's Birthday",
-      start: '2018-01-14',
-      backgroundColor: "#007bff",
-      borderColor: "#007bff",
-      textColor: '#fff'
-    },
-    */
 
     @foreach($creneaux as $creneau)
 
@@ -102,38 +85,7 @@ $("#myEvent").fullCalendar({
     },
 
     @Endforeach
-    /*
-    {
-      title: 'Starting New Project',
-      start: '2023-01-11',
-      backgroundColor: "#ffc107",
-      borderColor: "#ffc107",
-      textColor: '#fff'
-    },
-    {
-      title: 'Social Distortion Concert',
-      start: '2023-01-24',
-      end: '2023-01-27',
-      backgroundColor: "#000",
-      borderColor: "#000",
-      textColor: '#fff'
-    },
-    {
-      title: 'Lunch',
-      start: '2023-01-24T13:15:00',
-      backgroundColor: "#fff",
-      borderColor: "#fff",
-      textColor: '#000',
-    },
-    {
-      title: 'Company Trip',
-      start: '2023-01-28',
-      end: '2023-01-31',
-      backgroundColor: "#fff",
-      borderColor: "#fff",
-      textColor: '#000',
-    },
-    */
+
   ]
 
 });

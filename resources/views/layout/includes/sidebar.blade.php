@@ -11,8 +11,11 @@
             <li class="dropdown"> <!--  active   -->
               <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Acceuil</span></a>
               <ul class="dropdown-menu">
+                @if(auth()->user()->role != "Client")
                 <li><a class="nav-link" href="{{ route('dashboard') }}">Stastistique</a></li> <!-- class=active -->
+                @else
                 <li><a class="nav-link" href="{{ route('home') }}">Acceuil</a></li>
+                @endif
               </ul>
             </li>
             <li class="menu-header">Rendez-vous</li>
@@ -52,6 +55,8 @@
               </ul>
             </li>
   -->
+            @if(auth()->user()->role != "Client")
+
             <li class="menu-header">Utilisateurs</li>
             <li class="dropdown">
               <!--
@@ -116,6 +121,7 @@
               </ul>
             </li>
 
+            @endif
             <!--
             <li class="dropdown">
               <a href="#" class="nav-link has-dropdown"><i class="fas fa-exclamation"></i> <span>Errors</span></a>

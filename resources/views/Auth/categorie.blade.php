@@ -47,17 +47,19 @@
                         
                         <div class="col-xs-12 col-sm-6">
                             <a href="{{ route('login') }}">
-                                <div class="box">
-                                    <p>Je veux prendre rendez-vous</p>
+                                <div class="box" style="background-image: url('{{ asset('app-assets/assets/prise.jpeg') }}'); background-size: cover;">
+                                    
                                 </div>
+                                <p>Je veux prendre rendez-vous</p>
                             </a>
                         </div>
                         
                         <div class="col-xs-12 col-sm-6">
                             <a href="{{ route('login') }}">
-                                <div class="box">
-                                    <p>Administration</P>
+                                <div class="box" style="background-image: url('{{ asset('app-assets/assets/admin.jpg') }}'); background-size: cover;">
+                                    
                                 </div>
+                                <p>Administration</P>
                             </a>
                         </div>
                         

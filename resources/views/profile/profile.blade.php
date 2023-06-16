@@ -18,6 +18,25 @@
               <div class="breadcrumb-item">Profile</div>
             </div>
           </div>
+
+                <!-- ============================================================== -->
+                @if(count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+
+                @if(session('success'))
+                <div class="alert alert-success">
+                {{ session('success') }}
+                </div> 
+                @endif
+                <!-- ===================== Alerte laravel ===================== -->
+
           <div class="section-body">
             <h2 class="section-title">{{ auth()->user()->nom }} {{ auth()->user()->prenom }}</h2>
             <p class="section-lead">
@@ -69,7 +88,8 @@
               </div>
               <div class="col-12 col-md-12 col-lg-7">
                 <div class="card">
-                  <form method="post" class="needs-validation" novalidate="">
+                  <form method="post" enctype="multipart/form-data" action="{{ route('profile.up', ['id' => auth()->user()->id]) }}" class="needs-validation" novalidate="">
+                    @csrf
                     <div class="card-header">
                       <h4>Editer le profil</h4>
                     </div>
@@ -77,14 +97,14 @@
                         <div class="row">                               
                           <div class="form-group col-md-6 col-12">
                             <label>Nom</label>
-                            <input type="text" class="form-control" value="{{ auth()->user()->nom }}" required="">
+                            <input type="text" class="form-control" value="{{ auth()->user()->nom }}" name="nom">
                             <div class="invalid-feedback">
                                 Merci de renseigner le prénom
                             </div>
                           </div>
                           <div class="form-group col-md-6 col-12">
                             <label>prenom</label>
-                            <input type="text" class="form-control" value="{{ auth()->user()->prenom }}" required="">
+                            <input type="text" class="form-control" value="{{ auth()->user()->prenom }}" name="prenom">
                             <div class="invalid-feedback">
                                 Merci de renseigner le nom
                             </div>
@@ -93,28 +113,28 @@
                         <div class="row">
                           <div class="form-group col-md-7 col-12">
                             <label>Email</label>
-                            <input type="email" class="form-control" value="{{ auth()->user()->email }}" required="">
+                            <input type="email" class="form-control" value="{{ auth()->user()->email }}" name="email">
                             <div class="invalid-feedback">
                                 Merci de renseigner l'email
                             </div>
                           </div>
                           <div class="form-group col-md-5 col-12">
                             <label>Phone</label>
-                            <input type="tel" class="form-control" value="{{ auth()->user()->phone }}">
+                            <input type="tel" class="form-control" value="{{ auth()->user()->phone }}" name="phone">
                           </div>
                         </div>
 
                         <div class="row">
                           <div class="form-group col-md-7 col-12">
                             <label>Mot de passe</label>
-                            <input type="password" class="form-control" value="{{ auth()->user()->password }}" required="">
+                            <input type="password" class="form-control" value="{{ auth()->user()->password }}" name="password">
                             <div class="invalid-feedback">
                                 Merci de renseigner le mot de passe
                             </div>
                           </div>
                           <div class="form-group col-md-5 col-12">
                             <label>Comfirmer mot de passe</label>
-                            <input type="password" class="form-control" value="{{ auth()->user()->password }}">
+                            <input type="password" class="form-control" value="{{ auth()->user()->password }}" name="password_confirmation">
                           </div>
                         </div>
 
@@ -146,7 +166,7 @@
 -->
                     </div>
                     <div class="card-footer text-right">
-                      <button class="btn btn-primary">Sauvegarder les modifications</button>
+                      <button type="submit" class="btn btn-primary">Sauvegarder les modifications</button>
                     </div>
                   </form>
                 </div>

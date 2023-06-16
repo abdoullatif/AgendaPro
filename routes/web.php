@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CalendrierController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\AdministrationController;
+use App\Http\Controllers\SynchronisationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,6 +83,21 @@ Route::get('/creneau/add', [CreneauController::class, 'addCreneau'])->name('cren
 //Creneau store
 Route::post('/creneau/store', [CreneauController::class, 'storeCreneau'])->name('creneau.store');
 
+//Creneau edite
+Route::get('/creneau/edit/{id}', [CreneauController::class, 'editCreneau'])->name('creneau.edit');
+
+//Creneau update confirmed
+Route::get('/creneau/up/conf/{id}', [CreneauController::class, 'confirmedCreneau'])->name('creneau.up.comfirmed');
+
+//Creneau update cancel
+Route::get('/creneau/up/cancel/{id}', [CreneauController::class, 'cancelCreneau'])->name('creneau.up.cancel');
+
+//Creneau store edite
+Route::post('/creneau/store/edit/{id}', [CreneauController::class, 'editstoreCreneau'])->name('creneau.store.edit');
+
+//Creneau delete
+Route::get('/creneau/del/{id}', [CreneauController::class, 'delCreneau'])->name('creneau.del');
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -107,8 +123,11 @@ Route::get('/calendrier', [CalendrierController::class, 'index'])->name('calendr
 |
 */
 
-//Creneau
+//Profile
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+
+//Profile
+Route::post('/profile/up/{id}', [ProfileController::class, 'upProfile'])->name('profile.up');
 
 /*
 |--------------------------------------------------------------------------
@@ -161,8 +180,23 @@ Route::post('/store/administrateur', [AdministrationController::class, 'storeUse
 */
 
 //Notification
-Route::get('/notification', [NotificationController::class, 'index'])->name('admin');
+Route::get('/notification', [NotificationController::class, 'index'])->name('notif');
 
-Route::get('/notification/{id}', [NotificationController::class, 'show'])->name('show.invoice');
+Route::get('/notification/{id}', [NotificationController::class, 'show'])->name('show.notification');
  
 Route::post('/notif', [NotificationController::class, 'sendNotification'])->name('notify.send');
+
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes Synchronisation
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+//Sync
+Route::get('/sync', [SynchronisationController::class, 'index'])->name('sync');

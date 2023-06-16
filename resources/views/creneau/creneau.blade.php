@@ -102,11 +102,13 @@
                                 <span class="text-muted sr-only">Action</span>
                               </button>
                               <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Modifier</a>
-                                <a class="dropdown-item" href="#">Suprimer</a>
+                                <a class="dropdown-item" href="{{ route('creneau.edit', ['id'=> $creneau->id]) }}">Modifier</a>
+                                <a class="dropdown-item" href="{{ route('creneau.del', ['id'=> $creneau->id]) }}">Suprimer</a>
                                 <!-- si admin ou employer -->
-                                <a class="dropdown-item" href="#">Comfirmer</a>
-                                <a class="dropdown-item" href="#">Annuler</a>
+                                @if(auth()->user()->role != "Client")
+                                <a class="dropdown-item" href="{{ route('creneau.up.comfirmed', ['id'=> $creneau->id]) }}">Comfirmer</a>
+                                <a class="dropdown-item" href="{{ route('creneau.up.cancel', ['id'=> $creneau->id]) }}">Annuler</a>
+                                @endif
                                 <!-- End -->
                               </div>
                             </td>
